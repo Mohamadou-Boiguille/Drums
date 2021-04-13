@@ -1,0 +1,324 @@
+@font-face {
+  font-family: "digital 7";
+  src: url("/fonts/digital-7\ \(mono\).ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "lafontaine";
+  src: url("/fonts/Hardman.ttf") format("truetype");
+}
+
+body {
+  background: rgba(22, 25, 29, 1);
+  background: -webkit-linear-gradient(
+    top left,
+    rgba(22, 25, 29, 1),
+    rgba(46, 58, 151, 1)
+  );
+  background: -moz-linear-gradient(
+    top left,
+    rgba(22, 25, 29, 1),
+    rgba(46, 58, 151, 1)
+  );
+  background: linear-gradient(
+    to bottom right,
+    rgba(22, 25, 29, 1),
+    rgba(46, 58, 151, 1)
+  );
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: whitesmoke;
+  font-size: 2rem;
+  margin: 0;
+}
+
+h1 {
+  font-family: "digits 7";
+}
+
+.metronome {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  transition: 1.5s;
+}
+
+.fade {
+  background-color: blue;
+  transition: none;
+}
+
+#boutons1 {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#boutons1 button {
+  width: 9rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgb(70, 179, 252) 100%
+  );
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  margin: 0.3rem;
+  box-shadow: inset hsla(0, 0%, 15%, 1) 0 0px 0px 4px,
+    /* border */ inset hsla(0, 0%, 15%, 0.8) 0 -1px 5px 4px,
+    /* soft SD */ inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 7px,
+    /* bottom SD */ inset hsla(0, 0%, 100%, 0.7) 0 2px 1px 7px,
+    /* top HL */ hsla(0, 0%, 0%, 0.15) 0 -5px 6px 4px,
+    /* outer SD */ hsla(0, 0%, 100%, 0.5) 0 5px 6px 4px; /* outer HL */
+
+}
+
+.drumOn {
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  ) !important;
+  /* box-shadow: 0px 0px 2px 2px rgba(255,0,0,1) inset; */
+}
+
+.led {
+  background-color: transparent;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  margin: 0.3rem;
+  background: radial-gradient(
+    ellipse at center,
+    rgb(114, 1, 1) 0%,
+    rgb(63, 29, 29) 45%,
+    rgb(59, 59, 59) 50%,
+    rgba(0, 0, 0, 0) 55%
+  );
+}
+
+.ledOn {
+  background: radial-gradient(
+    ellipse at center,
+    rgb(255, 0, 0) 0%,
+    rgb(119, 55, 55) 45%,
+    rgb(59, 59, 59) 50%,
+    rgba(0, 0, 0, 0) 55%
+  );
+}
+
+.steps {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  background: beige;
+  padding: 2rem;
+  border-radius: 0.8rem;
+  background: -webkit-repeating-linear-gradient(
+    top left,
+    hsla(0, 0%, 100%, 0) 0%,
+    hsla(0, 0%, 100%, 0) 6%,
+    hsla(0, 0%, 100%, 0.1) 7.5%
+  );
+  background: -webkit-repeating-linear-gradient(
+    top left,
+    hsla(0, 0%, 0%, 0) 0%,
+    hsla(0, 0%, 0%, 0) 4%,
+    hsla(0, 0%, 0%, 0.03) 4.5%
+  );
+  background: -webkit-repeating-linear-gradient(
+    top left,
+    hsla(0, 0%, 100%, 0) 0%,
+    hsla(0, 0%, 100%, 0) 1.2%,
+    hsla(0, 0%, 100%, 0.15) 2.2%
+  );
+  background: linear-gradient(
+    225deg,
+    hsl(0, 0%, 78%) 0%,
+    hsl(0, 0%, 90%) 47%,
+    hsl(0, 0%, 78%) 53%,
+    hsl(0, 0%, 70%) 100%
+  );
+}
+
+div[class^="line"] {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+/* 
+div[class^="pad"] {
+    border: 2px;
+    margin: 2px;
+    width: 3em;
+    height: 3em;
+    background-color: aqua;
+} */
+
+div[class^="pad"] {
+  width: 3rem;
+  height: 3rem;
+  margin: 0.3rem;
+  box-sizing: border-box;
+  font-size: 12px;
+  text-align: center;
+  color: #555;
+  cursor: pointer;
+  border-color: #999999;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  background: -webkit-linear-gradient(
+    top,
+    hsl(0, 0%, 28%) 0%,
+    hsl(0, 0%, 22%) 80%,
+    hsl(0, 0%, 15%) 100%
+  );
+  font-family: sans-serif;
+  display: inline-block;
+  transition: box-shadow 0.3s ease, transform 0.15s ease;
+  box-shadow: hsla(0, 0%, 0%, 0.15) 0 -2px 2px 2px,
+    /* outer SD */ hsla(0, 0%, 100%, 0.5) 0 2px 3px 2px; /* outer HL */
+  transition: opacity 0.3s ease-in;
+}
+
+
+.padToPlay {
+  background: -webkit-linear-gradient(
+    top,
+    rgb(155, 54, 54) 0%,
+    rgb(179, 114, 114) 80%,
+    rgb(211, 211, 211) 100%
+  ) !important;
+}
+
+input[type="number"] {
+  text-align: center;
+  height: 5rem;
+  width: 7rem;
+  font-family: "digital 7";
+  font-size: 4rem;
+  border-radius: 0.5rem;
+  background-color: black;
+  color: transparent;
+  text-shadow: 0 0 0 rgb(245, 163, 56);
+  box-shadow: hsla(0, 0%, 0%, 0.15) 0 -5px 6px 4px,
+    /* outer SD */ hsla(0, 0%, 100%, 0.5) 0 5px 6px 4px; /* outer HL */
+}
+
+input[type="number"]:focus {
+  outline: none;
+}
+
+#playButton {
+  height: 5rem;
+  width: 15rem;
+}
+
+.controls {
+  padding-top: 2rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: -webkit-fill-available;
+}
+
+/* imported button */
+#playButton {
+  font-size: 1em;
+  border-radius: 0.5em;
+  background: -webkit-repeating-linear-gradient(
+    left,
+    hsla(0, 0%, 100%, 0) 0%,
+    hsla(0, 0%, 100%, 0) 6%,
+    hsla(0, 0%, 100%, 0.1) 7.5%
+  );
+  background: -webkit-repeating-linear-gradient(
+    left,
+    hsla(0, 0%, 0%, 0) 0%,
+    hsla(0, 0%, 0%, 0) 4%,
+    hsla(0, 0%, 0%, 0.03) 4.5%
+  );
+  background: -webkit-repeating-linear-gradient(
+    left,
+    hsla(0, 0%, 100%, 0) 0%,
+    hsla(0, 0%, 100%, 0) 1.2%,
+    hsla(0, 0%, 100%, 0.15) 2.2%
+  );
+  background: linear-gradient(
+    180deg,
+    hsl(0, 0%, 78%) 0%,
+    hsl(0, 0%, 90%) 47%,
+    hsl(0, 0%, 78%) 53%,
+    hsl(0, 0%, 70%) 100%
+  );
+}
+
+#playButton {
+  outline: none;
+
+  font: bold 1em/0.5em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  text-align: center;
+  color: hsla(0, 0%, 20%, 1);
+  text-shadow: hsla(0, 0%, 40%, 0.5) 0 -1px 0, hsla(0, 0%, 100%, 0.6) 0 2px 1px;
+
+  background-color: hsl(0, 0%, 90%);
+  box-shadow: inset hsla(0, 0%, 15%, 1) 0 0px 0px 4px,
+    /* border */ inset hsla(0, 0%, 15%, 0.8) 0 -1px 5px 4px,
+    /* soft SD */ inset hsla(0, 0%, 0%, 0.25) 0 -1px 0px 7px,
+    /* bottom SD */ inset hsla(0, 0%, 100%, 0.7) 0 2px 1px 7px,
+    /* top HL */ hsla(0, 0%, 0%, 0.15) 0 -5px 6px 4px,
+    /* outer SD */ hsla(0, 0%, 100%, 0.5) 0 5px 6px 4px; /* outer HL */
+
+  transition: color 0.5s;
+}
+
+#playButton:active {
+  color: hsl(210, 100%, 40%);
+  text-shadow: hsla(210, 100%, 20%, 0.3) 0 -1px 0, hsl(210, 100%, 85%) 0 2px 1px,
+    hsla(200, 100%, 80%, 1) 0 0 5px, hsla(210, 100%, 50%, 0.6) 0 0 20px;
+  outline: none;
+}
+
+.controlCenter {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.allPads > div :nth-child(4n + 1),
+.steps .line0 :nth-child(4n + 1) {
+  margin-left: 1rem;
+}
+
+.gravure {
+  font-family: "lafontaine";
+  margin: 0;
+  color: rgb(51, 51, 51);
+  text-shadow: 0px -1px 0px rgb(0, 0, 0);
+}
+
+p {
+  color: rgb(34, 34, 34);
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
